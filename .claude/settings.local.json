@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install *)",
+      "Bash(flutter analyze *)",
+      "Bash(flutter build *)",
+      "Bash(flutter pub *)",
+      "Bash(grep -v \"^\\\\s*//\")",
+      "Bash(grep -v \"^.*//.*[一-鿿]\")",
+      "Bash(python -c ' *)",
+      "Bash(dart run *)",
+      "Bash(dir \"C:\\\\SFC CLUB\\\\social_game_app\\\\android\" /b)",
+      "Bash(dir \"C:\\\\SFC CLUB\\\\social_game_app\\\\android\\\\app\" /b)",
+      "Bash(flutter clean *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\SFC CLUB\\\\social_game_app\" -Recurse -File -Include \"*.dart\", \"*.yaml\", \"*.json\")",
+      "Bash(Select-Object FullName)",
+      "Bash(Sort-Object FullName)",
+      "Bash(Get-ChildItem -Path \"C:\\\\SFC CLUB\\\\social_game_app\\\\assets\\\\icon\\\\\" -ErrorAction SilentlyContinue)",
+      "Bash(Get-ChildItem -Path \"C:\\\\SFC CLUB\\\\social_game_app\\\\lib\" -Recurse -File -Filter \"*.dart\")",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(xargs sed -i 's/\\\\.toStringAsFixed\\(0\\)/\\\\.toStringAsFixed\\(2\\)/g')",
+      "Bash(sed -i 's/session\\\\.courtHoursBooked\\\\.toStringAsFixed\\(2\\)/session.courtHoursBooked.toStringAsFixed\\(0\\)/g' lib/screens/sessions/session_detail_screen.dart)",
+      "Bash(sed -i 's/s\\\\.courtHoursBooked\\\\.toStringAsFixed\\(2\\)/s.courtHoursBooked.toStringAsFixed\\(0\\)/g' lib/screens/sessions/create_session/steps/step8_final.dart)",
+      "Bash(sed -i 's/widget\\\\.session\\\\.courtHoursBooked\\\\.toStringAsFixed\\(2\\)/widget.session.courtHoursBooked.toStringAsFixed\\(0\\)/g' lib/screens/sessions/create_session/steps/step3_players_paste.dart)",
+      "Bash(npm install *)"
+    ]
+  }
+}

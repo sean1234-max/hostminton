@@ -1,0 +1,28 @@
+{
+  "functions": {
+    "source": "functions"
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "sfc-arena",
+          "appId": "1:822329598577:android:90b2a9884fca2e8f61f1d0",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "sfc-arena",
+          "configurations": {
+            "android": "1:822329598577:android:90b2a9884fca2e8f61f1d0",
+            "ios": "1:822329598577:ios:9c1fced2e5f0aba661f1d0",
+            "macos": "1:822329598577:ios:9c1fced2e5f0aba661f1d0",
+            "web": "1:822329598577:web:98448a6880fdef2d61f1d0",
+            "windows": "1:822329598577:web:e4be8b02898b6b3461f1d0"
+          }
+        }
+      }
+    }
+  }
+}
