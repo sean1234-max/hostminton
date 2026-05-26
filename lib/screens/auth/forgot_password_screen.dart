@@ -58,7 +58,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen>
       if (mounted) _showError(e.message);
       rethrow;
     } catch (e) {
-      if (mounted) _showError('Error: ${e.runtimeType} — $e');
+      if (mounted) _showError('$e');
       rethrow;
     }
     if (mounted) setState(() { _sent = true; _sentEmail = email; });

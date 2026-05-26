@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../theme/app_colors.dart';
-import '../main_shell.dart';
 import 'sign_in_screen.dart';
 import 'widgets/animated_background.dart';
 import 'widgets/animated_brand_mark.dart';
@@ -134,20 +133,13 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
   // ── Navigation ───────────────────────────────────────────────────────────────
 
   Future<void> _onContinue() async {
-    // If the user is already signed in (OTP flow), go straight to the dashboard.
-    // Otherwise (deep-link or change-password flow), go to sign-in screen.
-    final user = FirebaseAuth.instance.currentUser;
-    if (user != null && widget.oobCode == null) {
-      Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (_) => const MainShell()),
-        (_) => false,
-      );
-    } else {
-      Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (_) => const SignInScreen()),
-        (_) => false,
-      );
-    }
+    // Always sign out and return to sign-in so the user logs in with the new password.
+    await FirebaseAuth.instance.signOut();
+    if (!mounted) return;
+    Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute(builder: (_) => const SignInScreen()),
+      (_) => false,
+    );
   }
 
   // ── Build ────────────────────────────────────────────────────────────────────
@@ -305,9 +297,6 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
   // ── Success state ─────────────────────────────────────────────────────────────
 
   Widget _buildSuccess() {
-    final alreadySignedIn = FirebaseAuth.instance.currentUser != null
-        && widget.oobCode == null;
-
     return Column(
       key: const ValueKey('success'),
       children: [
@@ -364,18 +353,16 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen>
                 fontWeight: FontWeight.w700,
                 letterSpacing: -0.2)),
         const SizedBox(height: 8),
-        Text(
-          alreadySignedIn
-              ? "You're signed in. Let's go!"
-              : 'Use your new password to sign in.',
+        const Text(
+          'Use your new password to sign in.',
           textAlign: TextAlign.center,
-          style: const TextStyle(
+          style: TextStyle(
               color: AppColors.textSecondary, fontSize: 13, height: 1.5),
         ),
         const SizedBox(height: 32),
 
         AnimatedPrimaryButton(
-          label: alreadySignedIn ? 'Go to dashboard →' : 'Continue to sign in',
+          label: 'Continue to sign in',
           onPressed: _onContinue,
         ),
       ],

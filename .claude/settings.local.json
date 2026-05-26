@@ -22,7 +22,14 @@
       "Bash(sed -i 's/session\\\\.courtHoursBooked\\\\.toStringAsFixed\\(2\\)/session.courtHoursBooked.toStringAsFixed\\(0\\)/g' lib/screens/sessions/session_detail_screen.dart)",
       "Bash(sed -i 's/s\\\\.courtHoursBooked\\\\.toStringAsFixed\\(2\\)/s.courtHoursBooked.toStringAsFixed\\(0\\)/g' lib/screens/sessions/create_session/steps/step8_final.dart)",
       "Bash(sed -i 's/widget\\\\.session\\\\.courtHoursBooked\\\\.toStringAsFixed\\(2\\)/widget.session.courtHoursBooked.toStringAsFixed\\(0\\)/g' lib/screens/sessions/create_session/steps/step3_players_paste.dart)",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "mcp__6d02c96f-45ac-444c-9a5e-bc6cb3692e2a__list_teams",
+      "Bash(vercel inspect *)",
+      "Bash(vercel ls *)",
+      "Bash(cat \"/mnt/c/Users/User/AppData/Local/Temp/claude/C--SFC-CLUB-social-game-app/03910ce1-c100-4142-b3de-fafa41ed31bb/tasks/bu1txrwb1.output\" 2>&1)",
+      "PowerShell(vercel login 2>&1)",
+      "mcp__6d02c96f-45ac-444c-9a5e-bc6cb3692e2a__get_runtime_logs",
+      "mcp__6d02c96f-45ac-444c-9a5e-bc6cb3692e2a__list_deployments"
     ]
   }
 }
