@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +31,18 @@ void main() async {
   runApp(
     ChangeNotifierProvider.value(value: provider, child: const BadmintonApp()),
   );
+
+  // You may set the permission requests to "provisional" which allows the user to choose what type
+  // of notifications they would like to receive once the user receives a notification.
+  final notificationSettings =
+      await FirebaseMessaging.instance.requestPermission(provisional: true);
+
+  // For apple platforms, make sure the APNS token is available before making any FCM plugin API calls
+  final token = await FirebaseMessaging.instance.getToken();
+  if (token != null) {
+    // APNS token is available, make FCM plugin API requests...
+    print("FCM Token: " + token);
+  }
 }
 
 class BadmintonApp extends StatelessWidget {

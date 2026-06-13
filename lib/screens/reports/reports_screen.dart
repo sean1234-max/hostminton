@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
@@ -49,21 +51,21 @@ class ReportsScreen extends StatelessWidget {
                 children: [
                   StatCard(
                     label: 'Income',
-                    value: '$currency ${_fmt(totalIncome)}',
+                    value: '$currency ${totalIncome.toStringAsFixed(2)}',
                     valueColor: AppColors.green,
                     expanded: true,
                   ),
                   const SizedBox(width: 8),
                   StatCard(
                     label: 'Expenses',
-                    value: '$currency ${_fmt(totalExpenses)}',
+                    value: '$currency ${totalExpenses.toStringAsFixed(2)}',
                     valueColor: AppColors.red,
                     expanded: true,
                   ),
                   const SizedBox(width: 8),
                   StatCard(
                     label: 'Net Profit',
-                    value: '$currency ${_fmt(netProfit)}',
+                    value: '$currency ${netProfit.toStringAsFixed(2)}',
                     valueColor:
                         netProfit >= 0 ? AppColors.green : AppColors.red,
                     expanded: true,
@@ -168,19 +170,24 @@ class ReportsScreen extends StatelessWidget {
         ),
         borderData: FlBorderData(show: false),
         titlesData: FlTitlesData(
-          leftTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-          rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-          topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+          leftTitles:
+              const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+          rightTitles:
+              const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+          topTitles:
+              const AxisTitles(sideTitles: SideTitles(showTitles: false)),
           bottomTitles: AxisTitles(
             sideTitles: SideTitles(
               showTitles: true,
               getTitlesWidget: (value, meta) {
                 final idx = value.toInt();
-                if (idx < 0 || idx >= chart.length) return const SizedBox.shrink();
+                if (idx < 0 || idx >= chart.length)
+                  return const SizedBox.shrink();
                 final month = chart[idx]['month'] as DateTime;
                 return Text(
                   DateFormat('MMM').format(month),
-                  style: const TextStyle(color: AppColors.textMuted, fontSize: 9),
+                  style:
+                      const TextStyle(color: AppColors.textMuted, fontSize: 9),
                 );
               },
               reservedSize: 22,
@@ -241,19 +248,24 @@ class ReportsScreen extends StatelessWidget {
         ),
         borderData: FlBorderData(show: false),
         titlesData: FlTitlesData(
-          leftTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-          rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-          topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+          leftTitles:
+              const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+          rightTitles:
+              const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+          topTitles:
+              const AxisTitles(sideTitles: SideTitles(showTitles: false)),
           bottomTitles: AxisTitles(
             sideTitles: SideTitles(
               showTitles: true,
               getTitlesWidget: (value, meta) {
                 final idx = value.toInt();
-                if (idx < 0 || idx >= data.length) return const SizedBox.shrink();
+                if (idx < 0 || idx >= data.length)
+                  return const SizedBox.shrink();
                 final month = data[idx]['month'] as DateTime;
                 return Text(
                   DateFormat('MMM').format(month),
-                  style: const TextStyle(color: AppColors.textMuted, fontSize: 9),
+                  style:
+                      const TextStyle(color: AppColors.textMuted, fontSize: 9),
                 );
               },
               reservedSize: 22,

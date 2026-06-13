@@ -368,7 +368,5 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  String _fmt(double v) => v.abs() >= 1000
-      ? '${(v / 1000).toStringAsFixed(1)}K'
-      : v.toStringAsFixed(2);
+  String _fmt(double v) => v.toStringAsFixed(2);
 }
